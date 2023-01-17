@@ -1,9 +1,10 @@
 package com.maasbodev
 
-import io.ktor.server.application.*
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import com.maasbodev.plugins.*
+import com.maasbodev.plugins.configureRouting
+import com.maasbodev.plugins.configureSerialization
+import io.ktor.server.application.Application
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
@@ -12,4 +13,5 @@ fun main() {
 
 fun Application.module() {
     configureRouting()
+    configureSerialization()
 }
