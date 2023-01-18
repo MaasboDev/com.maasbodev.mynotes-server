@@ -12,9 +12,18 @@ fun Application.configureRouting() {
 
     routing {
         route("/notes") {
+
+            // CREATE
+
+            // READ
+
             get {
                 call.respond(NotesRepository.getAll())
             }
+
+            // UPDATE
+
+            // DELETE
         }
     }
 }
