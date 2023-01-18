@@ -24,7 +24,7 @@ object NotesRepository {
 
     fun getAll(): List<Note> = notesDb.select().executeAsList().map { it.toNote() }
 
-    fun getById(id: Long): Note? = notesDb.select().executeAsOneOrNull()?.toNote()
+    fun getById(id: Long): Note? = notesDb.selectById(id).executeAsOneOrNull()?.toNote()
 
     fun update(note: Note): Boolean {
         if (getById(note.id) == null) return false
